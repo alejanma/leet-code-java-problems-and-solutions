@@ -34,23 +34,40 @@ public class MultiplyStrings_43 {
 
         //Indexes
         int indexOfDigits1 = digits1.length - 1;
-        int indexOfDigist2;
+        int indexOfDigits2;
 
         // GET INITIAL NUMBERS
         for(; indexOfDigits1 >= 0 ;indexOfDigits1--)
         {
-            indexOfDigist2 = digits2.length - 1;
+            indexOfDigits2 = digits2.length - 1;
 
-            for(; indexOfDigist2 >= 0;indexOfDigist2--)
+            for(; indexOfDigits2 >= 0;indexOfDigits2--)
             {
-                System.out.println(digits1[indexOfDigits1] + "-" + digits2[indexOfDigist2]);
-                //If index2 is 0 then use the whole number.
-
-                //otherwise do the normal way.
-
+                int number1 = Character.getNumericValue(digits1[indexOfDigits1]);
+                int number2 = Character.getNumericValue(digits2[indexOfDigits2]);
+                System.out.println(number1 + "-" + number2);
 
                 int residue = 0;
                 int calculation = 0;
+
+                //STILL NEED TO REORGANIZE THIS.
+                calculation  = (number1 * number2) + residue;
+
+
+                if(indexOfDigits2 != 0)
+                {
+                    residue = calculation / 10;
+                    calculation = (int) ((double)calculation % 10 - residue * 10); //ERROR HERE IN THIS CALCULATION. i AM NOT GETTING DESIRED RESULT.
+                    System.out.println("Calculation " + calculation);
+                    System.out.println("Residue " + residue);
+                }else{
+                    //WHOLE
+                    System.out.println("Calculation " + calculation);
+                }
+                //otherwise do the normal way.
+
+
+
             }
             //TECHNICALLY THIS COUNTS AS ONE LINE OF DIGITS TO ADD AT THE END.
             numbersToAdd[indexOfDigits1] = "something here the final result to add";
